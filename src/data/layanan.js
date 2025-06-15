@@ -1,0 +1,20 @@
+const services = [
+    {
+      title: "Konsultasi Online",
+      desc: "Diskusi langsung dengan dokter terpercaya.",
+      icon: "💬",
+    },
+    {
+      title: "Rekam Medis Digital",
+      desc: "Catatan kesehatan Anda tersimpan aman.",
+      icon: "📋",
+    },
+    {
+      title: "Reservasi Mudah",
+      desc: "Pesan layanan kesehatan kapan saja.",
+      icon: "📅",
+    },
+  ];
+  
+  export default services;
+  

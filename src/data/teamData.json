@@ -1,0 +1,58 @@
+{
+    "team": [
+      {
+        "id": 1,
+        "name": "Dr. Sarah Wijaya, Sp.PD",
+        "position": "Dokter Spesialis Penyakit Dalam",
+        "experience": "15 Tahun",
+        "specialization": "Diabetes & Hipertensi",
+        "photo": "https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=300&h=300&fit=crop&crop=face",
+        "description": "Ahli dalam penanganan penyakit metabolik dan kardiovaskular"
+      },
+      {
+        "id": 2,
+        "name": "Dr. Ahmad Rahman, Sp.JP",
+        "position": "Dokter Spesialis Jantung",
+        "experience": "12 Tahun",
+        "specialization": "Kardiologi Intervensi",
+        "photo": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=300&h=300&fit=crop&crop=face",
+        "description": "Berpengalaman dalam kateterisasi jantung dan prosedur minimal invasif"
+      },
+      {
+        "id": 3,
+        "name": "Dr. Maya Sari, Sp.A",
+        "position": "Dokter Spesialis Anak",
+        "experience": "10 Tahun",
+        "specialization": "Pediatri Umum & Vaksinasi",
+        "photo": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face",
+        "description": "Fokus pada kesehatan anak dan program imunisasi komprehensif"
+      },
+      {
+        "id": 4,
+        "name": "Dr. Budi Santoso, Sp.OG",
+        "position": "Dokter Spesialis Kandungan",
+        "experience": "18 Tahun",
+        "specialization": "Obstetri & Ginekologi",
+        "photo": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face",
+        "description": "Ahli dalam kesehatan reproduksi wanita dan persalinan"
+      },
+      {
+        "id": 5,
+        "name": "Ns. Linda Permata, S.Kep",
+        "position": "Kepala Perawat",
+        "experience": "8 Tahun",
+        "specialization": "Manajemen Keperawatan",
+        "photo": "https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=300&h=300&fit=crop&crop=face",
+        "description" : "Koordinator tim perawat dan quality assurance pelayanan"
+      },
+      {
+        "id": 6,
+        "name": "Apt. Rizki Pratama, S.Farm",
+        "position": "Apoteker Kepala",
+        "experience": "6 Tahun",
+        "specialization": "Farmasi Klinik",
+        "photo": "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=300&h=300&fit=crop&crop=face",
+        "description": "Bertanggung jawab atas pengelolaan obat dan konseling farmasi"
+      }
+    ]
+  }

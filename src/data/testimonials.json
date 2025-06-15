@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Andi Saputra",
+    "comment": "Pelayanan sangat cepat dan dokter sangat ramah. Saya merasa aman dan nyaman menggunakan platform ini.",
+    "image": "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    "name": "Siti Rahmawati",
+    "comment": "Sistem rekam medis digital ini sangat membantu saya dalam mengakses riwayat kesehatan saya kapan saja.",
+    "image": "https://randomuser.me/api/portraits/women/45.jpg"
+  },
+  {
+    "name": "Budi Santoso",
+    "comment": "Tidak perlu repot ke rumah sakit hanya untuk cek riwayat medis. Sangat praktis dan user-friendly.",
+    "image": "https://randomuser.me/api/portraits/men/65.jpg"
+  }
+]

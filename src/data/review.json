@@ -1,0 +1,65 @@
+[
+    {
+      "id": 1,
+      "name": "Dr. Sarah Johnson",
+      "role": "Dokter Umum",
+      "hospital": "RS Siloam Kebon Jeruk",
+      "date": "15 Juni 2025",
+      "rating": 5,
+      "review": "Sistem rekam medis elektronik ini sangat membantu dalam mengelola data pasien. Interface yang user-friendly dan fitur pencarian yang cepat membuat pekerjaan sehari-hari menjadi lebih efisien."
+    },
+    {
+      "id": 2,
+      "name": "Ns. Maria Gonzalez",
+      "role": "Kepala Perawat",
+      "hospital": "RSUD Tarakan",
+      "date": "12 Juni 2025",
+      "rating": 5,
+      "review": "Dokumentasi perawatan menjadi lebih akurat dan terstruktur. Sistem reminder untuk medication schedule sangat membantu mengurangi medical error."
+    },
+    {
+      "id": 3,
+      "name": "Dr. Ahmad Wijaya",
+      "role": "Dokter Spesialis Jantung",
+      "hospital": "RS Harapan Kita",
+      "date": "10 Juni 2025",
+      "rating": 4,
+      "review": "Integrasi dengan peralatan medis membuat monitoring pasien real-time. Laporan otomatis sangat membantu untuk evaluasi treatment plan."
+    },
+    {
+      "id": 4,
+      "name": "Apt. Linda Sari",
+      "role": "Apoteker",
+      "hospital": "Apotek Kimia Farma",
+      "date": "8 Juni 2025",
+      "rating": 5,
+      "review": "Sistem prescription tracking yang akurat dan alert untuk drug interaction. Inventory management juga terintegrasi dengan baik."
+    },
+    {
+      "id": 5,
+      "name": "Dr. Michael Chen",
+      "role": "Radiologi",
+      "hospital": "RS Premier Jatinegara",
+      "date": "5 Juni 2025",
+      "rating": 4,
+      "review": "PACS integration yang seamless dan image viewing yang high quality. Sharing hasil radiologi antar dokter menjadi lebih mudah dan cepat."
+    },
+    {
+      "id": 6,
+      "name": "Ns. Siti Nurhaliza",
+      "role": "Perawat ICU",
+      "hospital": "RS Fatmawati",
+      "date": "3 Juni 2025",
+      "rating": 5,
+      "review": "Vital signs monitoring yang real-time dan alert system yang responsif. Dokumentasi shift handover menjadi lebih komprehensif."
+    },
+    {
+      "id": 7,
+      "name": "Dr. Robert Kim",
+      "role": "Direktur Medis",
+      "hospital": "RS Pondok Indah",
+      "date": "1 Juni 2025",
+      "rating": 5,
+      "review": "Dashboard analytics yang powerful untuk medical governance. Quality indicators dan compliance reporting sangat membantu manajemen."
+    }
+  ]
