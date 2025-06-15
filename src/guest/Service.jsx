@@ -18,6 +18,7 @@ const services = [
     duration: 30,
     category: "Konsultasi",
     icon: <FaStethoscope />,
+    iconColor: "text-blue-600", // Warna biru untuk konsultasi umum
   },
   {
     id: "jantung",
@@ -27,6 +28,7 @@ const services = [
     duration: 45,
     category: "Pemeriksaan",
     icon: <FaHeartbeat />,
+    iconColor: "text-red-600", // Warna merah untuk jantung
   },
   {
     id: "darah",
@@ -36,6 +38,7 @@ const services = [
     duration: 15,
     category: "Laboratorium",
     icon: <FaVials />,
+    iconColor: "text-red-500", // Warna merah untuk darah
   },
   {
     id: "radiologi",
@@ -45,6 +48,7 @@ const services = [
     duration: 60,
     category: "Pemeriksaan",
     icon: <FaXRay />,
+    iconColor: "text-gray-600", // Warna abu-abu untuk radiologi
   },
   {
     id: "spesialis",
@@ -54,6 +58,7 @@ const services = [
     duration: 40,
     category: "Konsultasi",
     icon: <FaNotesMedical />,
+    iconColor: "text-green-600", // Warna hijau untuk spesialis
   },
   {
     id: "saraf",
@@ -63,6 +68,7 @@ const services = [
     duration: 50,
     category: "Pemeriksaan",
     icon: <FaBrain />,
+    iconColor: "text-purple-600", // Warna ungu untuk saraf/otak
   },
 ];
 
@@ -165,12 +171,12 @@ const Service = () => {
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="group bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              className="group bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl"
             >
               <div className="p-6">
                 <div className="bg-white p-3 rounded-lg shadow inline-block mb-4 transition-all duration-300 group-hover:rotate-6">
                   {React.cloneElement(service.icon, {
-                    className: "w-8 h-8 text-blue-700",
+                    className: `w-8 h-8 ${service.iconColor}`,
                   })}
                 </div>
                 <span className="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full mb-2">

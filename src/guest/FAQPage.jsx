@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, Users, Star } from 'lucide-react';
 
 // Data FAQ dan Testimonials
@@ -67,39 +66,38 @@ const faqData = {
 // Header Component
 const Header = () => {
   return (
-    
     <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-10">
       <div className="text-2xl font-bold text-blue-600">SIMEDI</div>
       <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
-        <Link to="/guest" className="text-blue-600 font-semibold">
+        <a href="/guest" className="text-blue-600 font-semibold">
           Home
-        </Link>
-        <Link to="/aboutus" className="hover:text-blue-600 transition-colors">
+        </a>
+        <a href="/aboutus" className="hover:text-blue-600 transition-colors">
           AboutUs
-        </Link>
-        <Link to="/service" className="hover:text-blue-600 transition-colors">
+        </a>
+        <a href="/service" className="hover:text-blue-600 transition-colors">
           Service
-        </Link>
-        <Link to="/artikel" className="hover:text-blue-600 transition-colors">
+        </a>
+        <a href="/artikel" className="hover:text-blue-600 transition-colors">
           Artikel
-        </Link>
-        <Link to="/FAQ" className="hover:text-blue-600 transition-colors">
+        </a>
+        <a href="/FAQ" className="hover:text-blue-600 transition-colors">
           FAQ
-        </Link>
-        <Link to="/ContactUs" className="hover:text-blue-600 transition-colors">
+        </a>
+        <a href="/ContactUs" className="hover:text-blue-600 transition-colors">
           ContactUs
-        </Link>
-        <Link to="/reviews" className="hover:text-blue-600 transition-colors">
+        </a>
+        <a href="/reviews" className="hover:text-blue-600 transition-colors">
           Reviews
-        </Link>
+        </a>
       </nav>
       <div className="space-x-3">
-        <Link to="/login" className="text-blue-600 font-medium hover:underline">
+        <a href="/login" className="text-blue-600 font-medium hover:underline">
           Log in
-        </Link>
-        <Link to="/register" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transition-colors">
+        </a>
+        <a href="/register" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transition-colors">
           Sign up
-        </Link>
+        </a>
       </div>
     </header>
   );
@@ -237,9 +235,12 @@ const TestimonialsSection = ({ testimonials }) => {
         <p className="text-gray-600 text-sm mb-4">
           Tim support kami siap membantu Anda 24/7
         </p>
-        <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold">
-          Hubungi Support
-        </button>
+        
+        <a href="/contactus">
+          <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold">
+            Hubungi Support
+          </button>
+        </a>
       </div>
     </div>
   );

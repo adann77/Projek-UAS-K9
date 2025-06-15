@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import services from "../data/layanan";
+import services from "../data/layanan.json";
 import testimonials from "../data/testimonials.json";
 
 const GuestMedicalPage = () => {

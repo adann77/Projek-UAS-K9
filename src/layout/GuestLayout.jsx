@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Footer from "../guest/Footer";
 
 const GuestLayout = ({ children }) => {
   return (
@@ -7,6 +8,7 @@ const GuestLayout = ({ children }) => {
       <main className="flex-grow">{children}</main>
 
       <Outlet />
+      <Footer/>
     </div>
   );
 };
