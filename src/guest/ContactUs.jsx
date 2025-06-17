@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { kontakAPI } from "../services/kontakAPI";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, FileText } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  FileText,
+} from "lucide-react";
+
 
 // Contact Info Card Component
 const ContactInfoCard = ({ icon: Icon, title, info, description }) => {
@@ -21,9 +31,19 @@ const ContactInfoCard = ({ icon: Icon, title, info, description }) => {
 };
 
 // Form Input Component
-const FormInput = ({ label, type = "text", placeholder, value, onChange, required = false, isTextarea = false, rows = 4 }) => {
-  const inputClasses = "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200";
-  
+const FormInput = ({
+  label,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  required = false,
+  isTextarea = false,
+  rows = 4,
+}) => {
+  const inputClasses =
+    "w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200";
+
   return (
     <div className="mb-6">
       <label className="block text-gray-700 font-medium mb-2">
@@ -55,46 +75,55 @@ const FormInput = ({ label, type = "text", placeholder, value, onChange, require
 // Contact Form Component
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    category: '',
-    message: ''
+    nama: "",
+    email_kontak: "",
+    nomorhp: "",
+    kategori: "",
+    subjek: "",
+    pesan: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleInputChange = (field) => (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: e.target.value
+      [field]: e.target.value,
     }));
   };
 
   const handleSubmit = async () => {
-    if (!formData.name || !formData.email || !formData.category || !formData.subject || !formData.message) {
-      alert('Mohon lengkapi semua field yang wajib diisi');
+    if (
+      !formData.nama ||
+      !formData.email_kontak ||
+      !formData.nomorhp ||
+      !formData.subjek ||
+      !formData.pesan
+    ) {
+      alert("Mohon lengkapi semua field yang wajib diisi");
       return;
     }
 
     setIsSubmitting(true);
-    
+
     // Simulasi pengiriman form
     setTimeout(() => {
-      setSubmitMessage('Pesan Anda telah berhasil dikirim! Tim kami akan merespons dalam 1x24 jam.');
+      setSubmitMessage(
+        "Pesan Anda telah berhasil dikirim! Tim kami akan merespons dalam 1x24 jam."
+      );
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        category: '',
-        message: ''
+        nama: "",
+        email_kontak: "",
+        nomorhp: "",
+        kategori: "",
+        subjek: "",
+        pesan: "",
       });
       setIsSubmitting(false);
-      
+
       // Hapus pesan sukses setelah 5 detik
-      setTimeout(() => setSubmitMessage(''), 5000);
+      setTimeout(() => setSubmitMessage(""), 5000);
     }, 2000);
   };
 
@@ -103,8 +132,8 @@ const ContactForm = () => {
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">Kirim Pesan</h2>
         <p className="text-gray-600">
-          Silakan isi form di bawah ini untuk mengirim pertanyaan atau pengaduan Anda. 
-          Tim kami akan merespons dalam waktu 1x24 jam.
+          Silakan isi form di bawah ini untuk mengirim pertanyaan atau pengaduan
+          Anda. Tim kami akan merespons dalam waktu 1x24 jam.
         </p>
       </div>
 
@@ -114,91 +143,89 @@ const ContactForm = () => {
         </div>
       )}
 
-      <div>
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <FormInput
-            label="Nama Lengkap"
-            placeholder="Masukkan nama lengkap Anda"
-            value={formData.name}
-            onChange={handleInputChange('name')}
-            required
-          />
-          <FormInput
-            label="Email"
-            type="email"
-            placeholder="nama@email.com"
-            value={formData.email}
-            onChange={handleInputChange('email')}
-            required
-          />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <FormInput
-            label="Nomor Telepon"
-            type="tel"
-            placeholder="08xxxxxxxxxx"
-            value={formData.phone}
-            onChange={handleInputChange('phone')}
-          />
-          <div className="mb-6">
-            <label className="block text-gray-700 font-medium mb-2">
-              Kategori <span className="text-red-500">*</span>
-            </label>
-            <select
-              value={formData.category}
-              onChange={handleInputChange('category')}
-              required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-            >
-              <option value="">Pilih kategori</option>
-              <option value="akses-rekam-medis">Akses Rekam Medis</option>
-              <option value="masalah-teknis">Masalah Teknis</option>
-              <option value="keluhan-layanan">Keluhan Layanan</option>
-              <option value="permintaan-informasi">Permintaan Informasi</option>
-              <option value="saran-perbaikan">Saran Perbaikan</option>
-              <option value="lainnya">Lainnya</option>
-            </select>
-          </div>
-        </div>
-
+      <div className="grid md:grid-cols-2 gap-6 mb-6">
         <FormInput
-          label="Subjek"
-          placeholder="Ringkasan singkat mengenai pesan Anda"
-          value={formData.subject}
-          onChange={handleInputChange('subject')}
+          label="Nama Lengkap"
+          placeholder="Masukkan nama lengkap Anda"
+          value={formData.nama}
+          onChange={handleInputChange("nama")}
           required
         />
-
         <FormInput
-          label="Pesan"
-          placeholder="Jelaskan pertanyaan atau keluhan Anda secara detail..."
-          value={formData.message}
-          onChange={handleInputChange('message')}
+          label="Email"
+          type="email"
+          placeholder="nama@email.com"
+          value={formData.email_kontak}
+          onChange={handleInputChange("email_kontak")}
           required
-          isTextarea
-          rows={6}
         />
-
-        <button
-          type="button"
-          onClick={handleSubmit}
-          disabled={isSubmitting}
-          className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 disabled:bg-blue-400 transition-colors duration-200 font-semibold flex items-center justify-center gap-2"
-        >
-          {isSubmitting ? (
-            <>
-              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              Mengirim...
-            </>
-          ) : (
-            <>
-              <Send size={20} />
-              Kirim Pesan
-            </>
-          )}
-        </button>
       </div>
+
+      <div className="grid md:grid-cols-2 gap-6 mb-6">
+        <FormInput
+          label="Nomor Telepon"
+          type="tel"
+          placeholder="08xxxxxxxxxx"
+          value={formData.nomorhp}
+          onChange={handleInputChange("nomorhp")}
+        />
+        <div>
+          <label className="block text-gray-700 font-medium mb-2">
+            Kategori <span className="text-red-500">*</span>
+          </label>
+          <select
+            value={formData.kategori}
+            onChange={handleInputChange("kategori")}
+            required
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+          >
+            <option value="">Pilih kategori</option>
+            <option value="akses-rekam-medis">Akses Rekam Medis</option>
+            <option value="masalah-teknis">Masalah Teknis</option>
+            <option value="keluhan-layanan">Keluhan Layanan</option>
+            <option value="permintaan-informasi">Permintaan Informasi</option>
+            <option value="saran-perbaikan">Saran Perbaikan</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+        </div>
+      </div>
+
+      <FormInput
+        label="Subjek"
+        placeholder="Ringkasan singkat mengenai pesan Anda"
+        value={formData.subjek}
+        onChange={handleInputChange("subjek")}
+        required
+      />
+
+      <FormInput
+        label="Pesan"
+        placeholder="Jelaskan pertanyaan atau keluhan Anda secara detail..."
+        value={formData.pesan}
+        onChange={handleInputChange("pesan")}
+        required
+        isTextarea
+        rows={6}
+      />
+
+      <button
+        type="button"
+        onClick={handleSubmit}
+        disabled={isSubmitting}
+        className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 disabled:bg-blue-400 transition-colors duration-200 font-semibold flex items-center justify-center gap-2 mt-6"
+      >
+        {isSubmitting ? (
+          <>
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            Mengirim...
+          </>
+        ) : (
+          <>
+            <Send size={20} />
+            Kirim Pesan
+          </>
+        )}
+      </button>
     </div>
   );
 };
@@ -210,78 +237,75 @@ const ContactUs = () => {
       icon: Phone,
       title: "Telepon",
       info: "+62 761 234 5678",
-      description: "Senin - Jumat: 08:00 - 17:00 WIB"
+      description: "Senin - Jumat: 08:00 - 17:00 WIB",
     },
     {
       icon: Mail,
       title: "Email",
       info: "support@simedi.com",
-      description: "Kami akan merespons dalam 1x24 jam"
+      description: "Kami akan merespons dalam 1x24 jam",
     },
     {
       icon: MapPin,
       title: "Alamat",
       info: "Jl. Sudirman No. 123",
-      description: "Pekanbaru, Riau 28282"
+      description: "Pekanbaru, Riau 28282",
     },
     {
       icon: Clock,
       title: "Jam Operasional",
       info: "24/7 Online Support",
-      description: "Sistem tersedia sepanjang waktu"
-    }
+      description: "Sistem tersedia sepanjang waktu",
+    },
   ];
 
   return (
-  <div className="bg-white min-h-screen font-sans text-gray-800">
-       {/* Header */}
-       <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-10">
-         <div className="text-2xl font-bold text-blue-600">SIMEDI</div>
-         <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
-           <Link to="/guest" className="text-blue-600 font-semibold">
-             Home
-           </Link>
-           <Link to="/aboutus" className="hover:text-blue-600 transition-colors">
-             AboutUs
-           </Link>
-           <Link to="/service" className="hover:text-blue-600 transition-colors">
-             Service
-           </Link>
-           <Link to="/artikel" className="hover:text-blue-600 transition-colors">
-             Artikel
-           </Link>
-           <Link to="/FAQ" className="hover:text-blue-600 transition-colors">
-             FAQ
-           </Link>
- 
-           <Link
-             to="/ContactUs"
-             className="hover:text-blue-600 transition-colors"
-           >
-             ContactUs
-           </Link>
-           <Link
-             to="/reviews"
-             className="hover:text-blue-600 transition-colors"
-           >
-             Reviews
-           </Link>
-         </nav>
-         <div className="space-x-3">
-           <Link
-             to="/login"
-             className="text-blue-600 font-medium hover:underline"
-           >
-             Log in
-           </Link>
-           <Link
-             to="/register"
-             className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transition-colors"
-           >
-             Sign up
-           </Link>
-         </div>
-       </header>
+    <div className="bg-white min-h-screen font-sans text-gray-800">
+      {/* Header */}
+      <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-10">
+        <div className="text-2xl font-bold text-blue-600">SIMEDI</div>
+        <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
+          <Link to="/guest" className="text-blue-600 font-semibold">
+            Home
+          </Link>
+          <Link to="/aboutus" className="hover:text-blue-600 transition-colors">
+            AboutUs
+          </Link>
+          <Link to="/service" className="hover:text-blue-600 transition-colors">
+            Service
+          </Link>
+          <Link to="/artikel" className="hover:text-blue-600 transition-colors">
+            Artikel
+          </Link>
+          <Link to="/FAQ" className="hover:text-blue-600 transition-colors">
+            FAQ
+          </Link>
+
+          <Link
+            to="/ContactUs"
+            className="hover:text-blue-600 transition-colors"
+          >
+            ContactUs
+          </Link>
+          <Link to="/reviews" className="hover:text-blue-600 transition-colors">
+            Reviews
+          </Link>
+        </nav>
+        <div className="space-x-3">
+          <Link
+            to="/login"
+            className="text-blue-600 font-medium hover:underline"
+          >
+            Log in
+          </Link>
+          <Link
+            to="/register"
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transition-colors"
+          >
+            Sign up
+          </Link>
+        </div>
+      </header>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
@@ -289,8 +313,8 @@ const ContactUs = () => {
             <MessageCircle size={64} className="mx-auto mb-6 text-blue-200" />
             <h1 className="text-4xl font-bold mb-4">Hubungi Kami</h1>
             <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Kami siap membantu Anda dengan pertanyaan seputar sistem rekam medis 
-              dan layanan kesehatan digital
+              Kami siap membantu Anda dengan pertanyaan seputar sistem rekam
+              medis dan layanan kesehatan digital
             </p>
           </div>
         </div>
@@ -325,10 +349,11 @@ const ContactUs = () => {
                   <h3 className="font-semibold text-gray-800">FAQ</h3>
                 </div>
                 <p className="text-gray-600 text-sm mb-4">
-                  Cek dulu pertanyaan yang sering ditanyakan sebelum menghubungi kami.
+                  Cek dulu pertanyaan yang sering ditanyakan sebelum menghubungi
+                  kami.
                 </p>
-                <Link 
-                  to="/faq" 
+                <Link
+                  to="/faq"
                   className="text-blue-600 hover:text-blue-800 font-medium text-sm inline-flex items-center transition-colors"
                 >
                   Lihat FAQ →
@@ -337,22 +362,30 @@ const ContactUs = () => {
 
               {/* Emergency Contact */}
               <div className="bg-red-50 border-l-4 border-red-500 rounded-lg p-6">
-                <h3 className="font-semibold text-red-800 mb-2">Kontak Darurat</h3>
+                <h3 className="font-semibold text-red-800 mb-2">
+                  Kontak Darurat
+                </h3>
                 <p className="text-red-700 text-sm mb-3">
                   Untuk masalah urgent yang memerlukan penanganan segera:
                 </p>
                 <div className="space-y-2">
-                  <p className="text-red-800 font-medium">📞 +62 761 234 9999</p>
+                  <p className="text-red-800 font-medium">
+                    📞 +62 761 234 9999
+                  </p>
                   <p className="text-red-700 text-sm">Tersedia 24 jam</p>
                 </div>
               </div>
 
               {/* Service Status */}
               <div className="bg-green-50 border-l-4 border-green-500 rounded-lg p-6">
-                <h3 className="font-semibold text-green-800 mb-2">Status Layanan</h3>
+                <h3 className="font-semibold text-green-800 mb-2">
+                  Status Layanan
+                </h3>
                 <div className="flex items-center mb-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                  <span className="text-green-800 font-medium">Semua sistem normal</span>
+                  <span className="text-green-800 font-medium">
+                    Semua sistem normal
+                  </span>
                 </div>
                 <p className="text-green-700 text-sm">
                   Terakhir diperbarui: Hari ini, 14:30 WIB

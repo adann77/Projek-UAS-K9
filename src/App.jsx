@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 // Import layouts yang sering digunakan secara normal
 import GuestLayout from "./layout/GuestLayout";
 import AuthLayout from "./layout/AuthLayout";
+import AdminLayout from "./layout/AdminLayout";
 
 // Lazy load halaman yang besar atau jarang diakses
 const ServiceDetailPage = lazy(() => import("./guest/ServiceDetailPage"));
@@ -25,6 +26,12 @@ import Artikel from "./guest/Artikel";
 import FAQPage from "./guest/FAQPage";
 import Loading from "./guest/Loading";
 
+//admin
+import DashboardAdmin from "./admin/Dashboard";
+import DokterPage from "./admin/DokterPage";
+import ManajemenPasien from "./admin/ManajemenPasien";
+import KontakPage from "./admin/KontakPage";
+
 function App() {
   return (
     <Suspense fallback={<Loading />}>
@@ -42,6 +49,14 @@ function App() {
           <Route path="/artikel/:id" element={<DetailArtikel />} />
           <Route path="/FAQ" element={<FAQPage />} />
           <Route path="/booking/:id" element={<BookingPage />} />
+        </Route>
+
+        {/* Admin pages */}
+        <Route element={<AdminLayout />}>
+          <Route path="/dashboard" element={<DashboardAdmin />} />
+          <Route path="/dokter" element={<DokterPage />} />
+          <Route path="/pasien" element={<ManajemenPasien />} />
+          <Route path="/kontak" element={<KontakPage />} />
         </Route>
 
         {/* Layout untuk halaman login/register */}
