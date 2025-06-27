@@ -79,61 +79,76 @@ const Artikel = () => {
 
   return (
     <div className="bg-white min-h-screen font-sans text-gray-800">
-    {/* Header */}
-    <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
-      <div className="flex items-center space-x-3">
-        <img
-          src="/img/logo rekam medis.png" 
-          alt="Logo SIMEDI"
-          className="h-12 w-12 object-contain p-1"
-        />
-        <span className="text-2xl font-bold text-blue-600">SIMEDI</span>
-      </div>
-          <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
-            <Link to="/guest" className="text-blue-600 font-semibold">
-              Home
-            </Link>
-            <Link to="/aboutus" className="hover:text-blue-600 transition-colors">
-              AboutUs
-            </Link>
-            <Link to="/service" className="hover:text-blue-600 transition-colors">
-              Service
-            </Link>
-            <Link to="/artikel" className="hover:text-blue-600 transition-colors">
-              Artikel
-            </Link>
-            <Link to="/FAQ" className="hover:text-blue-600 transition-colors">
-              FAQ
-            </Link>
-  
-            <Link
-              to="/ContactUs"
-              className="hover:text-blue-600 transition-colors"
-            >
-              ContactUs
-            </Link>
-            <Link
-              to="/reviews"
-              className="hover:text-blue-600 transition-colors"
-            >
-              Reviews
-            </Link>
-          </nav>
-          <div className="space-x-3">
-            <Link
-              to="/login"
-              className="text-blue-600 font-medium hover:underline"
-            >
-              Log in
-            </Link>
-            <Link
-              to="/register"
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transition-colors"
-            >
-              Sign up
-            </Link>
-          </div>
-        </header>
+      {/* Header */}
+      <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
+        <div className="flex items-center space-x-3">
+          <img
+            src="/img/logo rekam medis.png"
+            alt="Logo SIMEDI"
+            className="h-12 w-12 object-contain p-1"
+          />
+          <span className="text-2xl font-bold text-blue-600">SIMEDI</span>
+        </div>
+        <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
+          <Link
+            to="/guest"
+            className="text-blue-600 font-semibold transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            Home
+          </Link>
+          <Link
+            to="/aboutus"
+            className="hover:text-blue-600 transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            AboutUs
+          </Link>
+          <Link
+            to="/service"
+            className="hover:text-blue-600 transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            Service
+          </Link>
+          <Link
+            to="/artikel"
+            className="hover:text-blue-600 transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            Artikel
+          </Link>
+          <Link
+            to="/FAQ"
+            className="hover:text-blue-600 transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            FAQ
+          </Link>
+          <Link
+            to="/ContactUs"
+            className="hover:text-blue-600 transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            ContactUs
+          </Link>
+          <Link
+            to="/reviews"
+            className="hover:text-blue-600 transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            Reviews
+          </Link>
+        </nav>
+        <div className="space-x-3">
+          <Link
+            to="/login"
+            className="text-blue-600 font-medium hover:underline transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            Log in
+          </Link>
+          <Link
+            to="/register"
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            Sign up
+          </Link>
+        </div>
+      </header>
+
       {/* Konten */}
       <div className="max-w-6xl mx-auto px-4 py-10">
         <h1 className="text-3xl font-bold text-center mb-6 text-blue-700">
@@ -149,7 +164,7 @@ const Artikel = () => {
                 setSelectedCategory(cat);
                 setCurrentPage(1);
               }}
-              className={`px-4 py-2 rounded-full border transition ${
+              className={`px-4 py-2 rounded-full border transition-all duration-300 ease-in-out hover:scale-105 ${
                 selectedCategory === cat
                   ? "bg-blue-600 text-white"
                   : "bg-white text-blue-600 border-blue-600"
@@ -165,7 +180,7 @@ const Artikel = () => {
           {displayedArticles.map((article) => (
             <div
               key={article.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition flex flex-col"
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out hover:scale-[1.02] flex flex-col"
             >
               <img
                 src={`/img/${article.image}`}
@@ -186,7 +201,7 @@ const Artikel = () => {
                 <p className="text-gray-600 text-sm mb-4">{article.content}</p>
                 <Link
                   to={`/artikel/${article.id}`}
-                  className="mt-auto inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition"
+                  className="mt-auto inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition-all duration-300 ease-in-out hover:scale-105"
                 >
                   Lihat Detail
                 </Link>
@@ -201,7 +216,7 @@ const Artikel = () => {
             <button
               key={i + 1}
               onClick={() => setCurrentPage(i + 1)}
-              className={`w-10 h-10 rounded-full border transition ${
+              className={`w-10 h-10 rounded-full border transition-all duration-300 ease-in-out hover:scale-105 ${
                 currentPage === i + 1
                   ? "bg-blue-600 text-white"
                   : "text-blue-600 border-blue-600 bg-white"

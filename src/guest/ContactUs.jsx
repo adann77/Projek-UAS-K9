@@ -11,18 +11,21 @@ import {
   FileText,
 } from "lucide-react";
 
-
 // Contact Info Card Component
 const ContactInfoCard = ({ icon: Icon, title, info, description }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 transform cursor-pointer">
       <div className="flex items-center mb-4">
         <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
           <Icon className="text-blue-600" size={24} />
         </div>
         <div>
-          <h3 className="font-semibold text-gray-800">{title}</h3>
-          <p className="text-blue-600 font-medium">{info}</p>
+          <h3 className="font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200">
+            {title}
+          </h3>
+          <p className="text-blue-600 font-medium hover:text-blue-700 transition-colors duration-200">
+            {info}
+          </p>
         </div>
       </div>
       <p className="text-gray-600 text-sm">{description}</p>
@@ -46,7 +49,7 @@ const FormInput = ({
 
   return (
     <div className="mb-6">
-      <label className="block text-gray-700 font-medium mb-2">
+      <label className="block text-gray-700 font-medium mb-2 hover:text-blue-600 transition-colors">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       {isTextarea ? (
@@ -106,8 +109,6 @@ const ContactForm = () => {
     }
 
     setIsSubmitting(true);
-
-    // Simulasi pengiriman form
     setTimeout(() => {
       setSubmitMessage(
         "Pesan Anda telah berhasil dikirim! Tim kami akan merespons dalam 1x24 jam."
@@ -121,16 +122,16 @@ const ContactForm = () => {
         pesan: "",
       });
       setIsSubmitting(false);
-
-      // Hapus pesan sukses setelah 5 detik
       setTimeout(() => setSubmitMessage(""), 5000);
     }, 2000);
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8">
+    <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Kirim Pesan</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
+          Kirim Pesan
+        </h2>
         <p className="text-gray-600">
           Silakan isi form di bawah ini untuk mengirim pertanyaan atau pengaduan
           Anda. Tim kami akan merespons dalam waktu 1x24 jam.
@@ -138,7 +139,7 @@ const ContactForm = () => {
       </div>
 
       {submitMessage && (
-        <div className="mb-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700 rounded">
+        <div className="mb-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700 rounded animate-pulse">
           {submitMessage}
         </div>
       )}
@@ -170,7 +171,7 @@ const ContactForm = () => {
           onChange={handleInputChange("nomorhp")}
         />
         <div>
-          <label className="block text-gray-700 font-medium mb-2">
+          <label className="block text-gray-700 font-medium mb-2 hover:text-blue-600 transition-colors">
             Kategori <span className="text-red-500">*</span>
           </label>
           <select
@@ -212,7 +213,7 @@ const ContactForm = () => {
         type="button"
         onClick={handleSubmit}
         disabled={isSubmitting}
-        className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 disabled:bg-blue-400 transition-colors duration-200 font-semibold flex items-center justify-center gap-2 mt-6"
+        className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 disabled:bg-blue-400 transition-all duration-300 transform hover:-translate-y-1 font-semibold flex items-center justify-center gap-2 mt-6"
       >
         {isSubmitting ? (
           <>
@@ -261,18 +262,20 @@ const ContactUs = () => {
 
   return (
     <div className="bg-white min-h-screen font-sans text-gray-800">
-    {/* Header */}
-    <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
-      <div className="flex items-center space-x-3">
-        <img
-          src="/img/logo rekam medis.png" 
-          alt="Logo SIMEDI"
-          className="h-12 w-12 object-contain p-1"
-        />
-        <span className="text-2xl font-bold text-blue-600">SIMEDI</span>
-      </div>
+      <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
+        <div className="flex items-center space-x-3">
+          <img
+            src="/img/logo rekam medis.png"
+            alt="Logo SIMEDI"
+            className="h-12 w-12 object-contain p-1"
+          />
+          <span className="text-2xl font-bold text-blue-600">SIMEDI</span>
+        </div>
         <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
-          <Link to="/guest" className="text-blue-600 font-semibold">
+          <Link
+            to="/guest"
+            className="text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+          >
             Home
           </Link>
           <Link to="/aboutus" className="hover:text-blue-600 transition-colors">
@@ -287,7 +290,6 @@ const ContactUs = () => {
           <Link to="/FAQ" className="hover:text-blue-600 transition-colors">
             FAQ
           </Link>
-
           <Link
             to="/ContactUs"
             className="hover:text-blue-600 transition-colors"
@@ -313,8 +315,8 @@ const ContactUs = () => {
           </Link>
         </div>
       </header>
+
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        {/* Hero Section */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
           <div className="container mx-auto px-6 text-center">
             <MessageCircle size={64} className="mx-auto mb-6 text-blue-200" />
@@ -327,7 +329,6 @@ const ContactUs = () => {
         </div>
 
         <div className="container mx-auto px-6 py-16">
-          {/* Contact Info Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((info, index) => (
               <ContactInfoCard
@@ -340,20 +341,18 @@ const ContactUs = () => {
             ))}
           </div>
 
-          {/* Main Content */}
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Contact Form */}
             <div className="lg:col-span-2">
               <ContactForm />
             </div>
 
-            {/* Additional Info */}
             <div className="space-y-8">
-              {/* FAQ Quick Access */}
-              <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-center mb-4">
                   <FileText className="text-blue-600 mr-3" size={24} />
-                  <h3 className="font-semibold text-gray-800">FAQ</h3>
+                  <h3 className="font-semibold text-gray-800 hover:text-blue-600 transition-colors">
+                    FAQ
+                  </h3>
                 </div>
                 <p className="text-gray-600 text-sm mb-4">
                   Cek dulu pertanyaan yang sering ditanyakan sebelum menghubungi
@@ -361,14 +360,13 @@ const ContactUs = () => {
                 </p>
                 <Link
                   to="/faq"
-                  className="text-blue-600 hover:text-blue-800 font-medium text-sm inline-flex items-center transition-colors"
+                  className="text-blue-600 hover:text-blue-800 font-medium text-sm inline-flex items-center transition-transform duration-200 hover:translate-x-1"
                 >
                   Lihat FAQ →
                 </Link>
               </div>
 
-              {/* Emergency Contact */}
-              <div className="bg-red-50 border-l-4 border-red-500 rounded-lg p-6">
+              <div className="bg-red-50 border-l-4 border-red-500 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-red-800 mb-2">
                   Kontak Darurat
                 </h3>
@@ -383,8 +381,7 @@ const ContactUs = () => {
                 </div>
               </div>
 
-              {/* Service Status */}
-              <div className="bg-green-50 border-l-4 border-green-500 rounded-lg p-6">
+              <div className="bg-green-50 border-l-4 border-green-500 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-green-800 mb-2">
                   Status Layanan
                 </h3>

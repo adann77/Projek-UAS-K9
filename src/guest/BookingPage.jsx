@@ -41,10 +41,13 @@ const BookingPage = () => {
   const validate = () => {
     const newErrors = {};
     if (!form.nama_lengkap) newErrors.nama_lengkap = "Nama wajib diisi.";
-    if (!form.email || !form.email.includes("@")) newErrors.email = "Email tidak valid.";
-    if (!form.no_hp || form.no_hp.length < 10) newErrors.no_hp = "Nomor HP tidak valid.";
+    if (!form.email || !form.email.includes("@"))
+      newErrors.email = "Email tidak valid.";
+    if (!form.no_hp || form.no_hp.length < 10)
+      newErrors.no_hp = "Nomor HP tidak valid.";
     if (!form.keluhan) newErrors.keluhan = "Keluhan wajib diisi.";
-    if (!form.tanggal_periksa) newErrors.tanggal_periksa = "Tanggal wajib diisi.";
+    if (!form.tanggal_periksa)
+      newErrors.tanggal_periksa = "Tanggal wajib diisi.";
     if (!form.waktu_periksa) newErrors.waktu_periksa = "Waktu wajib diisi.";
     return newErrors;
   };
@@ -59,7 +62,7 @@ const BookingPage = () => {
 
     setLoading(true);
     try {
-      await pasienAPI.tambahPasien(form); // Panggil API Supabase
+      await pasienAPI.tambahPasien(form);
       alert("Booking berhasil dikirim!");
       setForm({
         nama_lengkap: "",
@@ -83,43 +86,93 @@ const BookingPage = () => {
 
   return (
     <div className="bg-white min-h-screen font-sans text-gray-800">
-    {/* Header */}
-    <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
-      <div className="flex items-center space-x-3">
-        <img
-          src="/img/logo rekam medis.png" 
-          alt="Logo SIMEDI"
-          className="h-12 w-12 object-contain p-1"
-        />
-        <span className="text-2xl font-bold text-blue-600">SIMEDI</span>
-      </div>
+      <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
+        <div className="flex items-center space-x-3">
+          <img
+            src="/img/logo rekam medis.png"
+            alt="Logo SIMEDI"
+            className="h-12 w-12 object-contain p-1"
+          />
+          <span className="text-2xl font-bold text-blue-600 transition duration-300 hover:scale-105">
+            SIMEDI
+          </span>
+        </div>
         <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
-          <Link to="/guest" className="text-blue-600 font-semibold">Home</Link>
-          <Link to="/aboutus" className="hover:text-blue-600">AboutUs</Link>
-          <Link to="/service" className="hover:text-blue-600">Service</Link>
-          <Link to="/artikel" className="hover:text-blue-600">Artikel</Link>
-          <Link to="/FAQ" className="hover:text-blue-600">FAQ</Link>
-          <Link to="/ContactUs" className="hover:text-blue-600">ContactUs</Link>
-          <Link to="/reviews" className="hover:text-blue-600">Reviews</Link>
+          <Link
+            to="/guest"
+            className="text-blue-600 font-semibold transform transition-transform hover:scale-105"
+          >
+            Home
+          </Link>
+          <Link
+            to="/aboutus"
+            className="hover:text-blue-600 transform transition-transform hover:scale-105"
+          >
+            AboutUs
+          </Link>
+          <Link
+            to="/service"
+            className="hover:text-blue-600 transform transition-transform hover:scale-105"
+          >
+            Service
+          </Link>
+          <Link
+            to="/artikel"
+            className="hover:text-blue-600 transform transition-transform hover:scale-105"
+          >
+            Artikel
+          </Link>
+          <Link
+            to="/FAQ"
+            className="hover:text-blue-600 transform transition-transform hover:scale-105"
+          >
+            FAQ
+          </Link>
+          <Link
+            to="/ContactUs"
+            className="hover:text-blue-600 transform transition-transform hover:scale-105"
+          >
+            ContactUs
+          </Link>
+          <Link
+            to="/reviews"
+            className="hover:text-blue-600 transform transition-transform hover:scale-105"
+          >
+            Reviews
+          </Link>
         </nav>
         <div className="space-x-3">
-          <Link to="/login" className="text-blue-600 font-medium hover:underline">Log in</Link>
-          <Link to="/register" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md">Sign up</Link>
+          <Link
+            to="/login"
+            className="text-blue-600 font-medium hover:underline transform hover:scale-105 transition-transform duration-300"
+          >
+            Log in
+          </Link>
+          <Link
+            to="/register"
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transform transition-transform duration-300 hover:scale-105"
+          >
+            Sign up
+          </Link>
         </div>
       </header>
 
-      {/* Booking Form */}
-      <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow mt-10">
-        <h2 className="text-2xl font-bold mb-6 text-blue-700">Form Pemesanan</h2>
+      <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow mt-10 transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+        <h2 className="text-2xl font-bold mb-6 text-blue-700">
+          Form Pemesanan
+        </h2>
 
-        <div className="mb-6 p-4 bg-blue-50 rounded shadow text-gray-700">
-          <p><strong>Layanan:</strong> {service.title}</p>
-          <p><strong>Harga:</strong> Rp {service.price.toLocaleString()}</p>
+        <div className="mb-6 p-4 bg-blue-50 rounded shadow text-gray-700 transition hover:shadow-md">
+          <p>
+            <strong>Layanan:</strong> {service.title}
+          </p>
+          <p>
+            <strong>Harga:</strong> Rp {service.price.toLocaleString()}
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Nama */}
-          <div className="flex items-center border rounded px-3 py-2">
+          <div className="flex items-center border rounded px-3 py-2 transition-all duration-300 hover:shadow-md">
             <FaUser className="text-blue-500 mr-2" />
             <input
               type="text"
@@ -130,10 +183,11 @@ const BookingPage = () => {
               className="w-full outline-none"
             />
           </div>
-          {errors.nama_lengkap && <p className="text-red-500 text-sm">{errors.nama_lengkap}</p>}
+          {errors.nama_lengkap && (
+            <p className="text-red-500 text-sm">{errors.nama_lengkap}</p>
+          )}
 
-          {/* Email */}
-          <div className="flex items-center border rounded px-3 py-2">
+          <div className="flex items-center border rounded px-3 py-2 transition-all duration-300 hover:shadow-md">
             <FaEnvelope className="text-blue-500 mr-2" />
             <input
               type="email"
@@ -144,10 +198,11 @@ const BookingPage = () => {
               className="w-full outline-none"
             />
           </div>
-          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-red-500 text-sm">{errors.email}</p>
+          )}
 
-          {/* No HP */}
-          <div className="flex items-center border rounded px-3 py-2">
+          <div className="flex items-center border rounded px-3 py-2 transition-all duration-300 hover:shadow-md">
             <FaPhone className="text-blue-500 mr-2" />
             <input
               type="tel"
@@ -158,20 +213,22 @@ const BookingPage = () => {
               className="w-full outline-none"
             />
           </div>
-          {errors.no_hp && <p className="text-red-500 text-sm">{errors.no_hp}</p>}
+          {errors.no_hp && (
+            <p className="text-red-500 text-sm">{errors.no_hp}</p>
+          )}
 
-          {/* Keluhan */}
           <textarea
             name="keluhan"
             placeholder="Keluhan"
             value={form.keluhan}
             onChange={handleChange}
-            className="w-full border rounded px-3 py-2 outline-none"
+            className="w-full border rounded px-3 py-2 outline-none transition-all duration-300 hover:shadow-md"
           />
-          {errors.keluhan && <p className="text-red-500 text-sm">{errors.keluhan}</p>}
+          {errors.keluhan && (
+            <p className="text-red-500 text-sm">{errors.keluhan}</p>
+          )}
 
-          {/* Tanggal */}
-          <div className="flex items-center border rounded px-3 py-2">
+          <div className="flex items-center border rounded px-3 py-2 transition-all duration-300 hover:shadow-md">
             <FaCalendarAlt className="text-blue-500 mr-2" />
             <input
               type="date"
@@ -181,10 +238,11 @@ const BookingPage = () => {
               className="w-full outline-none"
             />
           </div>
-          {errors.tanggal_periksa && <p className="text-red-500 text-sm">{errors.tanggal_periksa}</p>}
+          {errors.tanggal_periksa && (
+            <p className="text-red-500 text-sm">{errors.tanggal_periksa}</p>
+          )}
 
-          {/* Waktu */}
-          <div className="flex items-center border rounded px-3 py-2">
+          <div className="flex items-center border rounded px-3 py-2 transition-all duration-300 hover:shadow-md">
             <FaClock className="text-blue-500 mr-2" />
             <input
               type="time"
@@ -194,13 +252,14 @@ const BookingPage = () => {
               className="w-full outline-none"
             />
           </div>
-          {errors.waktu_periksa && <p className="text-red-500 text-sm">{errors.waktu_periksa}</p>}
+          {errors.waktu_periksa && (
+            <p className="text-red-500 text-sm">{errors.waktu_periksa}</p>
+          )}
 
-          {/* Submit */}
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition w-full mt-4 shadow"
+            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition w-full mt-4 shadow transform hover:scale-105"
           >
             {loading ? "Mengirim..." : "Kirim Pemesanan"}
           </button>
