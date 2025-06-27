@@ -66,8 +66,15 @@ const faqData = {
 // Header Component
 const Header = () => {
   return (
-    <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-10">
-      <div className="text-2xl font-bold text-blue-600">SIMEDI</div>
+    <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
+    <div className="flex items-center space-x-3">
+      <img
+        src="/img/logo rekam medis.png" 
+        alt="Logo SIMEDI"
+        className="h-12 w-12 object-contain p-1"
+      />
+      <span className="text-2xl font-bold text-blue-600">SIMEDI</span>
+    </div>
       <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
         <a href="/guest" className="text-blue-600 font-semibold">
           Home
