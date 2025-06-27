@@ -5,88 +5,58 @@ import teamData from "../data/teamData.json";
 const AboutUs = () => {
   return (
     <div className="bg-white min-h-screen font-sans text-gray-800">
-      {/* Header */}
-      <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50 transition-all duration-300 hover:shadow-lg">
-        <div className="flex items-center space-x-3 group">
-          <img
-            src="/img/logo rekam medis.png"
-            alt="Logo SIMEDI"
-            className="h-12 w-12 object-contain p-1 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
-          />
-          <span className="text-2xl font-bold text-blue-600 transition-all duration-300 group-hover:text-blue-700 group-hover:scale-105">
-            SIMEDI
-          </span>
-        </div>
-        <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
-          <Link
-            to="/guest"
-            className="text-blue-600 font-semibold relative overflow-hidden group"
-          >
-            <span className="relative z-10 transition-colors duration-300">
-              Home
-            </span>
-            <span className="absolute inset-0 bg-blue-100 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </Link>
-          <Link
-            to="/aboutus"
-            className="hover:text-blue-600 transition-all duration-300 relative overflow-hidden group px-2 py-1 rounded"
-          >
-            <span className="relative z-10">AboutUs</span>
-            <span className="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </Link>
-          <Link
-            to="/service"
-            className="hover:text-blue-600 transition-all duration-300 relative overflow-hidden group px-2 py-1 rounded"
-          >
-            <span className="relative z-10">Service</span>
-            <span className="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </Link>
-          <Link
-            to="/artikel"
-            className="hover:text-blue-600 transition-all duration-300 relative overflow-hidden group px-2 py-1 rounded"
-          >
-            <span className="relative z-10">Artikel</span>
-            <span className="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </Link>
-          <Link
-            to="/FAQ"
-            className="hover:text-blue-600 transition-all duration-300 relative overflow-hidden group px-2 py-1 rounded"
-          >
-            <span className="relative z-10">FAQ</span>
-            <span className="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </Link>
-
-          <Link
-            to="/ContactUs"
-            className="hover:text-blue-600 transition-all duration-300 relative overflow-hidden group px-2 py-1 rounded"
-          >
-            <span className="relative z-10">ContactUs</span>
-            <span className="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </Link>
-          <Link
-            to="/reviews"
-            className="hover:text-blue-600 transition-all duration-300 relative overflow-hidden group px-2 py-1 rounded"
-          >
-            <span className="relative z-10">Reviews</span>
-            <span className="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"></span>
-          </Link>
-        </nav>
-        <div className="space-x-3">
-          <Link
-            to="/login"
-            className="text-blue-600 font-medium hover:underline transition-all duration-300 hover:text-blue-700 hover:scale-105 inline-block"
-          >
-            Log in
-          </Link>
-          <Link
-            to="/register"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 hover:-translate-y-0.5"
-          >
-            Sign up
-          </Link>
-        </div>
-      </header>
-
+          {/* Header */}
+          <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
+            <div className="flex items-center space-x-3">
+              <img
+                src="/img/logo rekam medis.png"
+                alt="Logo SIMEDI"
+                className="h-12 w-12 object-contain p-1"
+              />
+              <span className="text-2xl font-bold text-blue-600">SIMEDI</span>
+            </div>
+            <nav className="space-x-6 font-medium text-gray-700 hidden md:flex">
+              <Link to="/guest" className="text-blue-600 font-semibold">
+                Home
+              </Link>
+              <Link to="/aboutus" className="hover:text-blue-600 transition-colors">
+                AboutUs
+              </Link>
+              <Link to="/service" className="hover:text-blue-600 transition-colors">
+                Service
+              </Link>
+              <Link to="/artikel" className="hover:text-blue-600 transition-colors">
+                Artikel
+              </Link>
+              <Link to="/FAQ" className="hover:text-blue-600 transition-colors">
+                FAQ
+              </Link>
+    
+              <Link
+                to="/ContactUs"
+                className="hover:text-blue-600 transition-colors"
+              >
+                ContactUs
+              </Link>
+              <Link to="/reviews" className="hover:text-blue-600 transition-colors">
+                Reviews
+              </Link>
+            </nav>
+            <div className="space-x-3">
+              <Link
+                to="/login"
+                className="text-blue-600 font-medium hover:underline"
+              >
+                Log in
+              </Link>
+              <Link
+                to="/register"
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 shadow-md transition-colors"
+              >
+                Sign up
+              </Link>
+            </div>
+          </header>
       {/* Section Konten */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
